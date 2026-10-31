@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Delights Bakery</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff9f4;
+            color: #512b20;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 2px 10px #ead9d0;
+        }
+
+        .logo {
+            color: #b84b68;
+            font-family: Georgia, serif;
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #512b20;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ed4776;
+        }
+
+        .hero {
+            min-height: 420px;
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, #fff0e3 0%, #fff0e3cc 48%, transparent 100%),
+                url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1600&q=85");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            max-width: 500px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(35px, 5vw, 58px);
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 22px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #e84d78;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b92f59;
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 45px 7%;
+            scroll-margin-top: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            color: #6b3325;
+        }
+
+        .section-title p {
+            color: #755d52;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            border: 1px solid #f0ddd2;
+            box-shadow: 0 4px 12px #70402a0d;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px #70402a20;
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 18px 12px;
+        }
+
+        .card h3 {
+            font-size: 19px;
+            margin-bottom: 6px;
+        }
+
+        .price {
+            color: #df3c6b;
+            font-size: 19px;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .products {
+            background-color: #fff0f2;
+        }
+
+        .products .grid {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+
+        .products .card img {
+            height: 165px;
+        }
+
+        .products .card h3 {
+            font-size: 16px;
+        }
+
+        .products .btn {
+            padding: 9px 18px;
+            font-size: 13px;
+        }
+
+        .offer {
+            margin: 10px 7%;
+            padding: 35px;
+            border-radius: 18px;
+            background: linear-gradient(120deg, #ffe0c9, #ffedf0);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .offer h2 {
+            font-family: Georgia, serif;
+            font-size: 30px;
+        }
+
+        .offer strong {
+            color: #df3c6b;
+        }
+
+        .offer img {
+            width: 230px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .custom {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .custom img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .custom h2 {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .custom ul {
+            padding-left: 22px;
+            margin: 15px 0;
+        }
+
+        .gallery {
+            background: #fff0f2;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .contact-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #f0ddd2;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 10px;
+            color: #b84b68;
+        }
+
+        .contact a {
+            color: #b84b68;
+        }
+
+        footer {
+            background: #48281f;
+            color: #fff5ec;
+            text-align: center;
+            padding: 28px 15px;
+        }
+
+        footer a {
+            color: #ffc4d4;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .products .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 15px;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero {
+                padding: 55px 7%;
+                background-position: 60% center;
+            }
+
+            .hero-content {
+                background-color: #fff0e3d9;
+                padding: 15px;
+                border-radius: 12px;
+            }
+
+            section {
+                padding: 35px 5%;
+            }
+
+            .grid,
+            .products .grid,
+            .custom,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card img {
+                height: 220px;
+            }
+
+            .offer {
+                margin: 10px 5%;
+                padding: 25px;
+            }
+
+            .offer img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .custom img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <div class="logo">🧁 Sweet Delights</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#products">Products</a>
+            <a href="#custom">Custom Cakes</a>
+            <a href="#offers">Offers</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Life Is Sweeter With Cake!</h1>
+            <p>
+                Freshly baked happiness, delicious pastries,
+                crunchy cookies and beautiful custom cakes.
+            </p>
+            <a href="#products" class="btn">Explore Our Menu →</a>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="categories">
+        <div class="section-title">
+            <h2>Our Delicious Categories</h2>
+            <p>Discover your favorite freshly baked treats.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
+                     alt="Chocolate cake">
+                <div class="card-content">
+                    <h3>Cakes</h3>
+                    <p>Classic, chocolate and fruit cakes.</p>
+                    <p class="price">From ₹499</p>
+                    <a href="#products" class="btn">View Cakes</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80"
+                     alt="Fresh croissants and pastries">
+                <div class="card-content">
+                    <h3>Pastries</h3>
+                    <p>Flaky, buttery and delicious.</p>
+                    <p class="price">From ₹79</p>
+                    <a href="#products" class="btn">View Pastries</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80"
+                     alt="Chocolate chip cookies">
+                <div class="card-content">
+                    <h3>Cookies</h3>
+                    <p>Crunchy, chewy and full of flavor.</p>
+                    <p class="price">From ₹60</p>
+                    <a href="#products" class="btn">View Cookies</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=600&q=80"
+                     alt="Decorated custom cake">
+                <div class="card-content">
+                    <h3>Custom Cakes</h3>
+                    <p>Beautiful cakes made for your occasion.</p>
+                    <p class="price">From ₹799</p>
+                    <a href="#custom" class="btn">Design Yours</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Products -->
+    <section class="products" id="products">
+        <div class="section-title">
+            <h2>Our Popular Products</h2>
+            <p>A little sweetness for every moment.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80"
+                     alt="Chocolate truffle cake">
+                <div class="card-content">
+                    <h3>Chocolate Truffle Cake</h3>
+                    <p class="price">₹599</p>
+                    <a href="#contact" class="btn">Order Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1586788680434-30d324b2d46f?auto=format&fit=crop&w=500&q=80"
+                     alt="Red velvet cake">
+                <div class="card-content">
+                    <h3>Red Velvet Cake</h3>
+                    <p class="price">₹649</p>
+                    <a href="#contact" class="btn">Order Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80"
+                     alt="Cheesecake">
+                <div class="card-content">
+                    <h3>Blueberry Cheesecake</h3>
+                    <p class="price">₹549</p>
+                    <a href="#contact" class="btn">Order Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80"
+                     alt="Butter croissant">
+                <div class="card-content">
+                    <h3>Butter Croissant</h3>
+                    <p class="price">₹99</p>
+                    <a href="#contact" class="btn">Order Now</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=500&q=80"
+                     alt="Chocolate chip cookies">
+                <div class="card-content">
+                    <h3>Chocolate Chip Cookies</h3>
+                    <p class="price">₹120</p>
+                    <a href="#contact" class="btn">Order Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seasonal Offers -->
+    <section id="offers">
+        <div class="offer">
+            <div>
+                <p>🎉 SEASONAL SPECIALS</p>
+                <h2>Sweet Treats for Every Season</h2>
+                <p>Enjoy special discounts on selected bakery items.</p>
+                <p><strong>UP TO 20% OFF</strong></p>
+                <br>
+                <a href="#products" class="btn">Shop Offers →</a>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=600&q=80"
+                 alt="Festive decorated cake">
+        </div>
+    </section>
+
+    <!-- Custom Cake Designs -->
+    <section id="custom">
+        <div class="custom">
+            <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=800&q=85"
+                 alt="Birthday cake with decorations">
+
+            <div>
+                <h2>Create Your Own Custom Cake</h2>
+                <p>
+                    Make your celebrations unforgettable with
+                    a cake designed especially for you.
+                </p>
+
+                <ul>
+                    <li>Birthday Cakes</li>
+                    <li>Anniversary Cakes</li>
+                    <li>Wedding Cakes</li>
+                    <li>Corporate Event Cakes</li>
+                    <li>Theme and Photo Cakes</li>
+                </ul>
+
+                <p class="price">Starting from ₹799</p>
+                <a href="#contact" class="btn">Order a Custom Cake →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="section-title">
+            <h2>Our Bakery Gallery</h2>
+            <p>Freshly baked and beautifully decorated with love.</p>
+        </div>
+
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80"
+                 alt="Chocolate cake gallery">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80"
+                 alt="Creamy dessert">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80"
+                 alt="Fresh cookies">
+            <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=600&q=80"
+                 alt="Birthday cake">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80"
+                 alt="Fresh pastries">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=600&q=80"
+                 alt="Cozy cafe interior">
+        </div>
+    </section>
+
+    <!-- Contact Details -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Visit Our Bakery</h2>
+            <p>We would love to make your day sweeter!</p>
+        </div>
+
+        <div class="contact">
+            <div class="contact-box">
+             <h3>📍 Store Address</h3>
+                <p>Sweet Delights Bakery</p>
+                <p>Benz Circle, Vijayawada, Andhra Pradesh</p>
+            </div>
+
+            <div class="contact-box">
+                <h3>📞 Contact Us</h3>
+                <p>Phone: +91 98765 43210</p>
+                <p>Email: sweetdelights@example.com</p>
+            </div>
+
+            <div class="contact-box">
+                <h3>🕒 Opening Hours</h3>
+                <p>Monday – Saturday: 9 AM – 9 PM</p>
+                <p>Sunday: 10 AM – 8 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h2>🧁 Sweet Delights Bakery</h2>
+        <p>Fresh Bakes • Happy Moments • Sweet Memories</p>
+        <br>
+        <p>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#offers">Offers</a>
+            <a href="#contact">Contact</a>
+        </p>
+        <br>
+        <p>© 2026 Sweet Delights Bakery. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

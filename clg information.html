@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NRI College | Official Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #263238;
+            background: #f4f7fb;
+        }
+
+        /* Header */
+        header {
+            background: #orange;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        header h2 {
+            color: #ffd966;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd966;
+        }
+
+        /* Banner */
+        .banner {
+            min-height: 380px;
+            padding: 70px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, #073763, #168aad);
+        }
+
+        .banner h1 {
+            font-size: clamp(30px, 5vw, 48px);
+            margin-bottom: 15px;
+            animation: appear 1s ease;
+        }
+
+        .banner p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffd966;
+            color: #073763;
+            padding: 12px 24px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 55px 7%;
+            scroll-margin-top: 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #073763;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .about {
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* Responsive cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit, minmax(min(100%, 220px), 1fr)
+            );
+            gap: 22px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 12px #00000012;
+            border-bottom: 4px solid #168aad;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 8px 20px #00000020;
+        }
+
+        .card .icon {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            color: #073763;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 15px;
+        }
+
+        .light {
+            background: #e8f1fa;
+        }
+
+        /* Admission information */
+        .admission-box {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 28px;
+            border-radius: 10px;
+        }
+
+        .admission-box ol {
+            padding-left: 25px;
+        }
+
+        .admission-box li {
+            margin: 10px 0;
+        }
+
+        /* Contact */
+        .contact {
+            background: #073763;
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: #ffd966;
+        }
+
+        .contact a {
+            color: #ffd966;
+        }
+
+        footer {
+            background: #052747;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+
+        /* Mobile layout */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .banner {
+                min-height: 320px;
+                padding: 45px 18px;
+            }
+
+            section {
+                padding: 40px 5%;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <h2>NRI College</h2>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#departments">Departments</a>
+            <a href="#courses">Courses</a>
+            <a href="#faculty">Faculty</a>
+            <a href="#admissions">Admissions</a>
+            <a href="#facilities">Facilities</a>
+            <a href="#events">Events</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <div class="banner" id="home">
+        <h1>Welcome to NRI College</h1>
+        <p>Learn Today, Lead Tomorrow</p>
+        <p>Quality Education | Innovation | Excellence</p>
+        <a href="#admissions" class="btn">Explore Admissions</a>
+    </div>
+
+    <!-- Institutional Information -->
+    <section id="about">
+        <h2 class="section-title">About Our College</h2>
+        <div class="about">
+            <p>
+                NRI College is dedicated to providing quality education
+                and developing students' academic, technical, and
+                professional skills. We encourage innovation, creativity,
+                leadership, and lifelong learning in a supportive
+                educational environment.
+            </p>
+        </div>
+    </section>
+
+    <!-- Departments -->
+    <section id="departments" class="light">
+        <h2 class="section-title">Our Departments</h2>
+        <div class="card-container">
+
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Computer Science</h3>
+                <p>Programming, software development, and computing.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">⚙️</div>
+                <h3>Mechanical</h3>
+                <p>Machines, manufacturing, and engineering design.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔌</div>
+                <h3>Electrical</h3>
+                <p>Electrical systems, circuits, and power technology.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏗️</div>
+                <h3>Civil Engineering</h3>
+                <p>Construction, infrastructure, and structural design.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Courses -->
+    <section id="courses">
+        <h2 class="section-title">Courses Offered</h2>
+        <div class="card-container">
+
+            <div class="card">
+                <h3>B.Tech</h3>
+                <p>Bachelor of Technology in engineering disciplines.</p>
+            </div>
+
+            <div class="card">
+                <h3>M.Tech</h3>
+                <p>Advanced postgraduate engineering education.</p>
+            </div>
+
+            <div class="card">
+                <h3>MBA</h3>
+                <p>Management, business, and leadership studies.</p>
+            </div>
+
+            <div class="card">
+                <h3>MCA</h3>
+                <p>Computer applications and software technologies.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Faculty -->
+    <section id="faculty" class="light">
+        <h2 class="section-title">Our Faculty</h2>
+        <div class="card-container">
+
+            <div class="card">
+                <div class="icon">👩‍🏫</div>
+                <h3>Dr.Suneetha</h3>
+                <p>Professor, Computer Science</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">👨‍🏫</div>
+                <h3>Mr. Ravi Kumar</h3>
+                <p>Associate Professor, Mechanical</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">👩‍💼</div>
+                <h3>Dr. Priya Sharma</h3>
+                <p>Professor, Electrical Engineering</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Admissions -->
+    <section id="admissions">
+        <h2 class="section-title">Admission Procedure</h2>
+
+        <div class="admission-box">
+            <ol>
+                <li>Check the eligibility criteria for your chosen course.</li>
+                <li>Complete the online or offline application form.</li>
+                <li>Submit the required certificates and documents.</li>
+                <li>Attend the entrance examination or counselling,
+                    if applicable.</li>
+                <li>Complete fee payment and document verification.</li>
+                <li>Confirm your admission and join the college.</li>
+            </ol>
+            <br>
+            <p><strong>Note:</strong> Actual admission requirements
+                depend on the course and institution.</p>
+        </div>
+    </section>
+
+    <!-- Campus Facilities -->
+    <section id="facilities" class="light">
+        <h2 class="section-title">Campus Facilities</h2>
+        <div class="card-container">
+
+            <div class="card">
+                <div class="icon">📚</div>
+                <h3>Library</h3>
+                <p>Books, journals, and digital learning resources.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🧪</div>
+                <h3>Laboratories</h3>
+                <p>Practical learning and hands-on experiments.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏏</div>
+                <h3>Sports</h3>
+                <p>Indoor and outdoor sports activities.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🚌</div>
+                <h3>Transport</h3>
+                <p>Transportation facilities for students.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events">
+        <h2 class="section-title">College Events</h2>
+        <div class="card-container">
+
+            <div class="card">
+                <div class="icon">🎓</div>
+                <h3>Annual Day</h3>
+                <p>Celebrate student achievements and talents.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💡</div>
+                <h3>Technical Fest</h3>
+                <p>Projects, coding competitions, and innovation.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎭</div>
+                <h3>Cultural Fest</h3>
+                <p>Music, dance, art, and cultural performances.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Details -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <p><strong>NRI College</strong></p>
+        <p>Vijayawada, Andhra Pradesh, India</p>
+        <p>Email: <a href="mailto:nricollege@gmail.com">
+            nricollege@gmail.com</a></p>
+        <p>Phone: +91-9876543210</p>
+        <p>Office Hours: Monday - Saturday</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 NRI College. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
